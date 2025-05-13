@@ -16,7 +16,7 @@ jobs:
     - name: set up JDK 11
       uses: actions/setup-java@v4
       with:
-        java-version: '11'
+        java-version: '8'
         distribution: 'temurin'
         cache: gradle
 
@@ -25,7 +25,7 @@ jobs:
     - name: Submodules
       run: git submodule update --init --recursive
     - name: Build with Gradle
-      run: ./gradlew build
+      run: gradle clean assembleRelease --refresh-dependencies
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.6.2
       with:
