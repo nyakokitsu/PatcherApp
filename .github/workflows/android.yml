@@ -25,7 +25,7 @@ jobs:
     - name: Submodules
       run: git submodule update --init --recursive
     - name: Build with Gradle
-      run: gradle clean assembleRelease --refresh-dependencies
+      run: ./gradlew clean assembleRelease --refresh-dependencies
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.6.2
       with:
