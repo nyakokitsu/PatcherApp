@@ -31,4 +31,4 @@ jobs:
       with:
         # Artifact name
         name: "HUI.apk"
-        path: "./app/build/intermediates/apk/release/app-release.apk"
+        path: "./app/build/outputs/apk/release/app-release.apk"
