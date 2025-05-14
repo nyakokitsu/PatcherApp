@@ -25,7 +25,7 @@ public class PatchApp extends LoggedRunnable {
     @Override
     public void run() {
         logEventListener.onLogLine(MainActivity.getAppContext().getResources().getString(R.string.step_patch_server));
-        String serverAddress = PreferenceManager.getDefaultSharedPreferences(MainActivity.getAppContext()).getString("locator_server", "https://p.projectearth.dev");
+        String serverAddress = PreferenceManager.getDefaultSharedPreferences(MainActivity.getAppContext()).getString("locator_server", "http://chikyu-prod.nyako.tk");
 
         // Make sure we have http or https
         if (!serverAddress.matches("^(http|https)://.*$")) {
