@@ -44,8 +44,8 @@ public class PatchApp extends LoggedRunnable {
 
         serverAddress = String.format("%1$-" + 27 + "s", serverAddress).replaceAll(" ", "\0");
 
-        String sunsetUrl = String.format("%1$-" + 24 + "s", "https://nyako.tk/chikyu").replaceAll(" ", "\0");
-        String supportUrl = String.format("%1$-" + 30 + "s", "https://nyako.tk/chikyusupp").replaceAll(" ", "\0");
+        String sunsetUrl = String.format("%1$-" + 23 + "s", "https://nyako.tk/chikyu").replaceAll(" ", "\0");
+        String supportUrl = String.format("%1$-" + 29 + "s", "https://nyako.tk/chikyusupp").replaceAll(" ", "\0");
 
         try (RandomAccessFile raf = new RandomAccessFile(StorageLocations.getOutDir().resolve("lib/arm64-v8a/libgenoa.so").toString(), "rw")) {
             // Write server address
