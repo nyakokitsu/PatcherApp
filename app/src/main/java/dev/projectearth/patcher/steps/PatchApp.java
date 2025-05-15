@@ -44,10 +44,19 @@ public class PatchApp extends LoggedRunnable {
 
         serverAddress = String.format("%1$-" + 27 + "s", serverAddress).replaceAll(" ", "\0");
 
+        String sunsetUrl = String.format("%1$-" + 27 + "s", "https://nyako.tk/chikyu").replaceAll(" ", "\0");
+        String supportUrl = String.format("%1$-" + 27 + "s", "https://nyako.tk/chikyusupp").replaceAll(" ", "\0");
+
         try (RandomAccessFile raf = new RandomAccessFile(StorageLocations.getOutDir().resolve("lib/arm64-v8a/libgenoa.so").toString(), "rw")) {
             // Write server address
             raf.seek(0x0514D05D);
             raf.write(serverAddress.getBytes());
+
+            //Write url replacement
+            raf.seek(0x513ee98);
+            raf.write(supportUrl.getBytes());
+            raf.seek(0x512824c);
+            raf.write(sunsetUrl.getBytes());
 
             // Patch sunset check for 0.33.0
             raf.seek(0x22A6DC8);
